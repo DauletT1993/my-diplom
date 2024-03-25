@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+{% for item in page_obj %}
+    <p><img class="img-article-left" src="{{item.photo.url}}"></p>
+    <p>{{ item.title }}</p>
+
+    <p>{{ item.content }}</p>
+
+{% endfor %}
+{% endblock %}
+
+<nav>
+    <ul>
+        {% for p in page_obj.paginator.page_range %}
+        <li>
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+    {% for item in cont %}
+    <p>Свяжитесь со мной, если у вас есть какие-либо предложения!</p>
+    <p>{{ item.last_name }} {{ item.name }}.</p>
+    <p>Тел. {{ item.telephone }}</p>
+    <p>E-mail: {{ item.email }}</p>
+{% endfor %}
+{% endblock %}
+
+<nav>
+    <ul>
+        {% for p in page_obj.paginator.page_range %}
+        <li>
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
